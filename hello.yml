@@ -50,7 +50,7 @@
     when: "forever_list.stdout.find('/node-app/app.js') == -1"
 
 # Third play - load balancing
-- name: Play - Install and configure Nginx as a LoadBalancer
+- name: Play - Install and Configure Nginx
   hosts: localhost
   become: yes
   tasks:
@@ -78,7 +78,7 @@
         dest: /etc/nginx/sites-enabled/default
         state: link
 
-    - name: Restart nginx to apply changes
+    - name: Restart nginx
       service:
         name: nginx
         state: restarted
